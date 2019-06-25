@@ -1,0 +1,26 @@
+{
+  "name": "mazegenerator",
+  "version": "0.0.0",
+  "description": "Maze Generation tools",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cbowcutt/MazeGenerator.git"
+  },
+  "keywords": [
+    "gamedev"
+  ],
+  "author": "Christopher Bowcutt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cbowcutt/MazeGenerator/issues"
+  },
+  "homepage": "https://github.com/cbowcutt/MazeGenerator#readme",
+  "dependencies": {
+    "browserify": "^16.2.3",
+    "pngjs-image": "^0.11.7"
+  }
+}
