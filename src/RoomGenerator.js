@@ -36,25 +36,7 @@ exports.Room = function(x, y, width, length)
 	return this;
 }
 
-exports.imageMapFromAtlas = function(map, tile_width, tile_length)
-{
-	var PNGImage = require('pngjs-image');
-	var widthCount = Math.max.apply(null, map.map(a => a.length));
-	var lengthCount = map.length;
-	var image = PNGImage.createImage(widthCount * tile_width, lengthCount * tile_length);
-	for (var y = 0; y < lengthCount; y++)
-	{
-		for(var x = 0; x < widthCount; x++)
-		{
-			if (map[x] == undefined)
-				console.log("YOO")
-			var fillColor = { red: 100, green: 255, blue: 100, alpha: 255};
-			if (map[y][x] == 1) fillColor = { red: 0, green: 0, blue: 0, alpha: 255};
-			exports.FillTile(image, x * tile_width, y * tile_width, tile_width, tile_length, fillColor); 
-		}
-	}
-	return image;
-}
+
 
 exports.generateMap = function(numRooms)
 {
@@ -79,16 +61,16 @@ exports.generateMap = function(numRooms)
 			y = previousRoom.Y;
 			if (rando == 0)
 			{
-				y += previousRoom.Length;
+				y += previousRoom.Length - 1;
 			}
 			if (rando == 1)
 			{
-				x += previousRoom.Width;
+				x += previousRoom.Width - 1;
 			}
 			if (rando >= 2)
 			{
-				x += previousRoom.Width;
-				y += previousRoom.Length;
+				x += previousRoom.Width - 1;
+				y += previousRoom.Length - 1;
 			}
 		}
 		rooms.push(exports.Room(x, y, width, length));
@@ -112,7 +94,6 @@ exports.generateMap = function(numRooms)
 			}
 		}
 	}
-	console.log(map);
 	return map;
 }
 
